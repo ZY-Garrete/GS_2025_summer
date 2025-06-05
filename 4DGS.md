@@ -2,20 +2,20 @@
 ## EasyVolcap 
 In one word, EasyVolcap is a __Pytorch library__ for accelerating neural volumetric video research. 
 
-In my words, __EasyVolcap__ is a __studio__ used for __4D Model__. Why I said like this, for the related research in __3D Model__, __Nerfstudio__ is built for a simple process to finished end-to-end process of creating, training, and testing NeRFs and its related variants. The 3D model studio(Nerfstudio) is very friendly for 3D Model beginners as it modularize each component in GUI way. The users can use all kinds of functions by GUI interfaces. From the following gif, we can see the user set the specific path(red line) to view the whole 3D building model, and it can also adjust the camera view for specific users' requirements. Compared to the original Nerf model, Nerf developers have to adjust the complex path code to get output. according to my experience, NerF just only provides the output with the fixed Spiral Upward Path for the input in the reconstruction process. It's also limited in the input order and fixed images size. Overall, Nerfstudios provides better and easier operations in modularizing each components with GUI.
+In my words, __EasyVolcap__ is a __studio__ used for __4D Model__. Why I said like this, for the related research in __3D Model__, __Nerfstudio__ is built for a simple process to finished end-to-end process of creating, training, and testing NeRFs and its related variants. The 3D model studio(Nerfstudio) is very friendly for 3D Model beginners as it modularizes each component in the GUI way. The users can use all kinds of functions through GUI interfaces. From the following GIF, we can see the user set the specific path(red line) to view the whole 3D building model, and it can also adjust the camera view for specific users' requirements. Compared to the original Nerf model, Nerf developers have to adjust the complex path code to get output. According to my experience, NerF only provides the output with the fixed Spiral Upward Path for the input in the reconstruction process. It's also limited in the input order and fixed image size. Overall, Nerfstudios provides better and easier operations in modularizing each component with the GUI.
 
 ![images](images/nerfstudio.gif "nerf_studio") 
 
-For better understanding, I put one more example here, __instant-ngp__. we can get some inspiration when we using the EasyVolcap. __instant-ngp__ is developed by the Nvidia with the same GUI ideas for easier operation on Nerf. But it accelerates the reconstruction process in an optimized pipeline and user can get the reconstruction view and output in few minutes(Traditional Nerf needs to take several hours to reconstruction and only output in final) 
+For better understanding, I put one more example here, __instant-ngp__. We can get some inspiration here before we use the EasyVolcap. __instant-ngp__ is developed by Nvidia with the same GUI ideas for easier operation on Nerf. But it accelerates the reconstruction process in an optimized pipeline and the user can get the reconstruction view and output in few minutes(Traditional Nerf needs to take several hours to reconstruct and only output in the final(no view in the process)) 
 
 ![images](images/instant-ngp.png "instant-ngp")
 
 ## From 3D studio --> 4D studio
-The following images is my past test on EasyVolcap with the E-NerF(Efficient NerF(4D)) Model.
+The following image is my past test on EasyVolcap with the E-NerF(Efficient NerF(4D)) Model.
 
 ![images](images/EasyVolcap.png "EasyVolcap")
 
-From the following the images, we can see some running details and operation options here. The biggest difference from 3D studio is that __timestamp__ is added here. We can drag this slider to view the rendering results at different times.
+From the following images, we can see some running details and operation options here. The biggest difference from 3D studio is that __timestamp__ is added here. We can drag this slider to view the rendering results at different times.
 
 ![images](images/EasyVolcap_OperationBoard.png "EasyVolcap")
 
@@ -29,7 +29,7 @@ From the following the images, we can see some running details and operation opt
 + GUI interface in the upper left corner
   + Resolution: 1920×1080
   + Frame rate (FPS): 2.255 FPS (low, indicating a large amount of calculation)
-  + Frame time: 443.47 milliseconds (i.e. rendering time per frame)
+  + Frame time: 443.47 milliseconds (i.e., rendering time per frame)
 
   + Model status:
     + Use median depth
@@ -64,15 +64,15 @@ In my word, __4DGS $\neq$ all_timestamp * 3DGS_timestamp__, __4DGS = Static foun
 #### 3DGS:
 + Summary: 3DGS is a method that uses Gaussian functions to represent the geometry and appearance information of a scene in three-dimensional space, establishes an explicit model to represent the entire 3D space, and provides an efficient and high-quality rendering method. 
 + Pipeline:
-  + 3DGS adds a Gaussian function to each x,y,z point to represent the volume it occupies. Each Gaussian function is determined by its mean and covariance matrix, which respectively determine the position and shape of the function, and uses opacity and SH spherical harmonics to represent the opacity and color of the Gaussian. Finally, the splatting method in CG is used to render a two-dimensional image at a specific observation position. In this model, the covariance matrix, opacity, and SH coefficient of each Gaussian are variables to be optimized, and the gradient backpropagation framework of pytorch is used for optimization during the training process.
+  + 3DGS adds a Gaussian function to each x,y,z point to represent the volume it occupies. Each Gaussian function is determined by its mean and covariance matrix, which respectively determine the position and shape of the function, and uses opacity and SH spherical harmonics to represent the opacity and color of the Gaussian. Finally, the splatting method in CG is used to render a two-dimensional image at a specific observation position. In this model, the covariance matrix, opacity, and SH coefficient of each Gaussian are variables to be optimized, and the gradient backpropagation framework of PyTorch is used for optimization during the training process.
 + Advantages:
   + high computational efficiency 
   + good rendering quality
   + good training speed
-  + highly flexible and suitable for a variety of scene
+  + highly flexible and suitable for a variety of scenes
   + purely explicit model-->Nerf(purely implicit models)
 #### 4DGS:
-Traditional 3DGS model just focuses for the static scene. When the scene start moves, the moving part must be blurred in the final model. If we want to model dynamic scenes by reconstructing a static scene for each frame. One problem is discontinuity, another is storage in training and rendering. Thus, 4DGS figures out these two problems by the following ways: Constructing a dynamic scene by deforming a static set of Gaussians over time.
+The traditional 3DGS model just focuses on the static scene. When the scene starts moving, the moving part must be blurred in the final model. If we want to model dynamic scenes by reconstructing a static scene for each frame. One problem is discontinuity, another is storage in training and rendering. Thus, 4DGS figures out these two problems in the following ways: Constructing a dynamic scene by deforming a static set of Gaussians over time.
 
 
 > **Start with a standard static scene**  
