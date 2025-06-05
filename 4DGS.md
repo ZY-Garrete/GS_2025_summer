@@ -76,7 +76,7 @@ Traditional 3DGS model just focuses for the static scene. When the scene start m
 
 
 > **Start with a standard static scene**  
-> $ G = \{x, y, z; r, s, c, \alpha\} $
+> ` G = \{x, y, z; r, s, c, \alpha\} `
 
 Apply a **deformation field** \( F(x, y, z, t) \) to produce time-dependent changes:
 
