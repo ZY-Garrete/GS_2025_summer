@@ -81,19 +81,19 @@ Traditional 3DGS model just focuses for the static scene. When the scene start m
 Apply a **deformation field**  F(x, y, z, t)  to produce time-dependent changes:
 
 > **Final dynamic scene**  
-> ` G' = \{x + \delta x, y + \delta y, z + \delta z; r + \delta r, s + \delta s, c, \alpha\} `
+> ` G' = {x + \delta x, y + \delta y, z + \delta z; r + \delta r, s + \delta s, c, α} `
 
 
 | Component                          | Meaning                                  |
 | ---------------------------------- | ---------------------------------------- |
 |  x, y, z                       | Static 3D position of a Gaussian         |
-|  r, s                         | Scale and rotation parameters            |
-|  c                            | Color (assumed to be time-invariant)     |
-|  \alpha                       | Opacity                                  |
-|  \delta x, \delta y, \delta z | Deformation offsets in space             |
+|  r, s                          | Scale and rotation parameters            |
+|  c                             | Color (assumed to be time-invariant)     |
+|  α                             | Opacity                                  |
+|  \delta x, \delta y, \delta z  | Deformation offsets in space             |
 |  \delta r, \delta s            | Deformation in scale and rotation        |
-|  F(x, y, z, t)                | The learned deformation field (MLP/grid) |
-|  G'                           | The final dynamic Gaussian scene         |
+|  F(x, y, z, t)                 | The learned deformation field (MLP/grid) |
+|  G'                            | The final dynamic Gaussian scene         |
 
 ---
 
