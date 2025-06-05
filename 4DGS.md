@@ -1,23 +1,23 @@
-# The summary of EasyVolcap and 4DGS
+ # The summary of EasyVolcap and 4DGS
 ## EasyVolcap 
 In one word, EasyVolcap is a __Pytorch library__ for accelerating neural volumetric video research. 
 
 In my words, __EasyVolcap__ is a __studio__ used for __4D Model__. Why I said like this, for the related research in __3D Model__, __Nerfstudio__ is built for a simple process to finished end-to-end process of creating, training, and testing NeRFs and its related variants. The 3D model studio(Nerfstudio) is very friendly for 3D Model beginners as it modularize each component in GUI way. The users can use all kinds of functions by GUI interfaces. From the following gif, we can see the user set the specific path(red line) to view the whole 3D building model, and it can also adjust the camera view for specific users' requirements. Compared to the original Nerf model, Nerf developers have to adjust the complex path code to get output. according to my experience, NerF just only provides the output with the fixed Spiral Upward Path for the input in the reconstruction process. It's also limited in the input order and fixed images size. Overall, Nerfstudios provides better and easier operations in modularizing each components with GUI.
 
-![images](images\nerfstudio.gif "nerf_studio") 
+![images](images/nerfstudio.gif "nerf_studio") 
 
 For better understanding, I put one more example here, __instant-ngp__. we can get some inspiration when we using the EasyVolcap. __instant-ngp__ is developed by the Nvidia with the same GUI ideas for easier operation on Nerf. But it accelerates the reconstruction process in an optimized pipeline and user can get the reconstruction view and output in few minutes(Traditional Nerf needs to take several hours to reconstruction and only output in final) 
 
-![images](images\instant-ngp.png "instant-ngp")
+![images](images/instant-ngp.png "instant-ngp")
 
 ## From 3D studio --> 4D studio
 The following images is my past test on EasyVolcap with the E-NerF(Efficient NerF(4D)) Model.
 
-![images](images\EasyVolcap.png "EasyVolcap")
+![images](images/EasyVolcap.png "EasyVolcap")
 
 From the following the images, we can see some running details and operation options here. The biggest difference from 3D studio is that __timestamp__ is added here. We can drag this slider to view the rendering results at different times.
 
-![images](images\EasyVolcap_OperationBoard.png "EasyVolcap")
+![images](images/EasyVolcap_OperationBoard.png "EasyVolcap")
 
 1. Operating environment
 + Operating device: NVIDIA GeForce RTX 4060 Ti
@@ -54,7 +54,7 @@ From the following the images, we can see some running details and operation opt
      + High video memory usage (7.3/8.0GB), almost full
      + CPU load 48%
   
-![images](images\EasyVolcap_runing.png "Easyvolcap_running")
+![images](images/EasyVolcap_runing.png "Easyvolcap_running")
 
 ## 4DGS
 In one word, 4D Gaussian Splatting represents dynamic scenes using four-dimensional ellipsoids that capture both space and time; it models object rotation over time with 4D rotors, encourages each point to be either clearly visible or fully transparent using an entropy loss, and ensures smooth motion by enforcing consistent speed across neighboring points.
@@ -97,7 +97,7 @@ Apply a **deformation field** \( F(x, y, z, t) \) to produce time-dependent chan
 
 ---
 
-![images](images\4DGS_pipeline.jpg "Easyvolcap_running")
+![images](images/4DGS_pipeline.jpg "Easyvolcap_running")
 
 ## 4DGS running (https://github.com/hustvl/4DGaussians)
 + Preparation
